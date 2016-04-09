@@ -11,12 +11,17 @@ MAINTAINER      Guillaume J. Charmes <guillaume@charmes.net>
 RUN             apt-get update -qq && \
                 apt-get install -qqy automake libcurl4-openssl-dev git make
 
-RUN             git clone https://github.com/pooler/cpuminer
+RUN             git clone https://github.com/wolf9466/hodlminer-wolf
 
-RUN             cd cpuminer && \
+RUN             cd hodlminer-wolf && \
                 ./autogen.sh && \
                 ./configure CFLAGS="-O3" && \
                 make
 
-WORKDIR         /cpuminer
-ENTRYPOINT      ["./minerd"]
+ENV		HODL_URL	stratum+tcp://hodl.suprnova.cc:4693
+ENV		HODL_USERNAME	MyUsername
+ENV		HOLD_WORKER	MyWorker
+ENV		HODL_PASSWORD	password
+
+WORKDIR         /hodlminer-wolf
+ENTRYPOINT      ["./hodlminer", "-o", ${HODL_URL}, "-u", ${HODL_USERNAME}"."${HODL_WORKER}, "-p", ${HODL_PASSWORD}]
