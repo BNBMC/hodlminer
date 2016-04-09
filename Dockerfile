@@ -18,10 +18,12 @@ RUN             cd hodlminer-wolf && \
                 ./configure CFLAGS="-O3" && \
                 make
 
+ADD		start-mining.sh hodlminer-wolf/start-mining.sh
+
 ENV		HODL_URL	stratum+tcp://hodl.suprnova.cc:4693
 ENV		HODL_USERNAME	MyUsername
-ENV		HOLD_WORKER	MyWorker
+ENV		HODL_WORKER	MyWorker
 ENV		HODL_PASSWORD	password
 
 WORKDIR         /hodlminer-wolf
-ENTRYPOINT      ["./hodlminer", "-o", ${HODL_URL}, "-u", ${HODL_USERNAME}"."${HODL_WORKER}, "-p", ${HODL_PASSWORD}]
+ENTRYPOINT      ["./start-mining.sh"]
