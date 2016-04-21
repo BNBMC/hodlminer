@@ -24,6 +24,7 @@ ENV		HODL_URL	stratum+tcp://hodl.suprnova.cc:4693
 ENV		HODL_USERNAME	MyUsername
 ENV		HODL_WORKER	MyWorker
 ENV		HODL_PASSWORD	password
+ENV		HODL_THREADS number
 
 WORKDIR         /hodlminer-wolf
 ENTRYPOINT      ["./start-mining.sh"]
