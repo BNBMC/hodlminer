@@ -6,4 +6,4 @@ echo "*************************************************"
 echo "*"
 echo "* Mining for: ${HODL_USERNAME}.${HODL_WORKER} at ${HODL_URL}"
 
-./hodlminer -o ${HODL_URL} -u ${HODL_USERNAME}.${HODL_WORKER} -p ${HODL_PASSWORD}
+./hodlminer -o ${HODL_URL} -u ${HODL_USERNAME}.${HODL_WORKER} -p ${HODL_PASSWORD} -t ${HODL_THREADS}
